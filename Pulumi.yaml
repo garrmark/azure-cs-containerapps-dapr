@@ -1,0 +1,7 @@
+name: azure-cs-containerapps-dapr
+runtime: dotnet
+description: Deploy a Dapr application to Azure Container Apps using the Pulumi C#
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://github.com/pulumi/examples/blob/master/azure-cs-containerapps/README.md
