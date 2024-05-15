@@ -83,13 +83,14 @@ class MyStack : Stack
         });
 
         var subs = Environment.GetEnvironmentVariable("ARM_SUBSCRIPTION_ID");
-        Console.WriteLine(subs);
+        var rgname = resourceGroup.Name.Apply(name => $"{name}");
+        var saname = myStorageAcct.Name.Apply(name => $"{name}");
         var roleAssignment = new RoleAssignment("roleAssignment", new()
         {
             PrincipalId = userAssignedIdentity.PrincipalId,
             PrincipalType = PrincipalType.User,
             RoleDefinitionId = $"/subscriptions/{subs}/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe",
-            Scope = $"/subscriptions/{subs}/resourceGroups/{resourceGroup.Name}/providers/Microsoft.Storage/storageAccounts/{myStorageAcct.Name}",
+            Scope = $"/subscriptions/{subs}/resourceGroups/{rgname}/providers/Microsoft.Storage/storageAccounts/{saname}",
         });
 
         var customImage = "node-app";
