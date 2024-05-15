@@ -81,8 +81,8 @@ class MyStack : Stack
             ResourceGroupName = resourceGroup.Name
         });
 
-        var current = GetClientConfig.Invoke();
-        var subs = current.Apply(getClientConfigResult => getClientConfigResult.SubscriptionId);
+        var config = new Pulumi.Config();
+        var subs = config.Require("ARM_SUBSCRIPTION_ID");
         var roleAssignment = new RoleAssignment("roleAssignment", new()
         {
             PrincipalId = userAssignedIdentity.PrincipalId,
