@@ -1,2 +1,3 @@
 config:
+  azure-native:location: westcentralus
   pulumi:template: https://github.com/pulumi/examples/tree/master/azure-cs-containerapps
