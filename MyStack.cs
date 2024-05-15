@@ -14,6 +14,7 @@ using Pulumi.AzureNative.Authorization;
 using Pulumi.Docker;
 using ContainerArgs = Pulumi.AzureNative.App.Inputs.ContainerArgs;
 using SecretArgs = Pulumi.AzureNative.App.Inputs.SecretArgs;
+using System;
 
 class MyStack : Stack
 {
@@ -81,8 +82,8 @@ class MyStack : Stack
             ResourceGroupName = resourceGroup.Name
         });
 
-        var config = new Pulumi.Config();
-        var subs = config.Require("ARM_SUBSCRIPTION_ID");
+        var subs = Environment.GetEnvironmentVariable("ARM_SUBSCRIPTION_ID");
+        Console.WriteLine(subs);
         var roleAssignment = new RoleAssignment("roleAssignment", new()
         {
             PrincipalId = userAssignedIdentity.PrincipalId,
