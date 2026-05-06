@@ -1,6 +1,3 @@
-[![Deploy](../.buttons/deploy-with-pulumi-dark.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-containerapps/README.md#gh-light-mode-only)
-[![Deploy](../.buttons/deploy-with-pulumi-light.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-containerapps/README.md#gh-dark-mode-only)
-
 # Azure Container Apps
 
 Starting point for building web application hosted in Azure Container Apps.
